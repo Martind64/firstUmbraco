@@ -1,0 +1,21 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+	Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="description" content="SEO info">
+		<title>@Umbraco.Field("pageName")</title>
+		@RenderSection("Head")
+		<link rel="stylesheet" type="text/css" href="/css/style.css" />
+
+	
+	</head>
+	<body>
+	@{Html.RenderPartial("MainNavigation"); }
+	@RenderBody()	
+	
+	@RenderSection("footer", required:false)
+	</body>
+</html>

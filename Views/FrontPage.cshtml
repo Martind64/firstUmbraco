@@ -1,0 +1,14 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.FrontPage>
+@using ContentModels = Umbraco.Web.PublishedContentModels;
+@{
+	Layout = "Master.cshtml";
+}
+
+	@section Head
+	{
+		<p> welcome to the front page</p>
+	}
+
+
+<h2>@Umbraco.Field("pageName")</h2>	
+<p>@Umbraco.Field("bodyText")</p>

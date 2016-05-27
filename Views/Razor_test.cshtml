@@ -1,0 +1,68 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using ContentModels = Umbraco.Web.PublishedContentModels;
+@{
+	Layout = "Master.cshtml";
+}
+	@section Head
+	{
+		<p> welcome to a text page </p>
+	}
+
+	<body>
+		<p>Hello World</p>
+	</body>
+	
+	<h2>@Umbraco.Field("pageName")</h2>
+	<p>@Umbraco.Field("bodyText")</p>
+		
+		<p>We are in the year @DateTime.Now.Year</p>
+		
+		<ul>
+			@foreach (var page in CurrentPage.Ancestors())
+			{
+				<li><a href="@page.Url">@page.Name</a></li>
+			}
+		</ul>
+
+	
+		
+		@section footer
+	{
+		<p class="footer"> Updated by @Umbraco.Field("writerName")on  @Umbraco.Field("updateDate", formatAsDate: true)</p>
+				
+	}
+
+	@{
+		var year = DateTime.Now.Year;
+		var day = DateTime.Now.DayOfWeek.ToString();
+		var month = DateTime.Now.Month;
+		var typeOfDay = DateTime.Now.DayOfWeek.ToString();
+
+		string monthName = "";
+		string theDay = "";
+		if (month == 1)
+		{
+			monthName = "January";
+		}
+		else if (month == 2)
+		{
+			monthName = "February";
+		}
+		else if (month == 5)
+		{
+			monthName = "may";
+		}
+		@monthName;
+		
+		if(typeOfDay == "Friday")
+		{
+		 	theDay = "today is friday!";
+		}
+		
+		@theDay;
+			
+			
+
+}
+
+
